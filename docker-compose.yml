@@ -1,29 +1,29 @@
 version: '3'
 
 services:
-  app:
-    build: .
-    # Command to force python app start to wait until DB is ready
-    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; python nqueens.py'
-    depends_on:
-      - db
-    environment:
-      DB_URI: postgres://queens:password@db:5432/challenge
+    app:
+        build: .
+        # Command to force python app start to wait until DB is ready
+        command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; python nqueens.py'
+        depends_on:
+            - db
+        environment:
+            DB_URI: postgres://queens:password@db:5432/challenge
 
-  db:
-    build:
-      context: .
-      dockerfile: Dockerfile.DB
-    restart: always
-    environment:
-      POSTGRES_USER: ${user}
-      POSTGRES_PASSWORD: ${password}
-      POSTGRES_DB: challenge
-    volumes:
-    - db-data:/var/lib/postgresql/data
-    ports:
-    - 5432:5432
+    db:
+        build:
+            context: .
+            dockerfile: Dockerfile.DB
+        restart: always
+        environment:
+            POSTGRES_USER: ${user}
+            POSTGRES_PASSWORD: ${password}
+            POSTGRES_DB: challenge
+        volumes:
+            - db-data:/var/lib/postgresql/data
+        ports:
+            - 5432:5432
 
 volumes: 
-  db-data:
-    driver: local
+    db-data:
+        driver: local

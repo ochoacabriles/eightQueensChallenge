@@ -10,13 +10,12 @@ Base.metadata.create_all(db)
 Session = sessionmaker(bind=db)
 
 def storeSolutions(solutions, n):
-  s = Session()
-  for i in range(len(solutions)):
-    solution = Solution(
-      n = n,
-      solution = solutions[i]
-    )
-    s.add(solution)
-  s.commit()
-  s.close()
-  print('Done')
+    s = Session()
+    for i in range(len(solutions)):
+        solution = Solution(
+            n = n,
+            solution = solutions[i]
+        )
+        s.add(solution)
+    s.commit()
+    s.close()

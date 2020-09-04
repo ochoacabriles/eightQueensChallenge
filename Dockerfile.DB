@@ -1,3 +1,5 @@
+# Dockerfile for postgres DB container
+# It's necessary to avoid hardcoding user and password in docker-compose yml file
 FROM postgres
 
 ARG user
