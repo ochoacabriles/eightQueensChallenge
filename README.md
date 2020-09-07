@@ -9,3 +9,5 @@ Postgres user and password are passed as arguments to the container to avoid pot
 To run the solution create a .env file to set postgres_user and postgres_password (see .env.example for more details) and run the following command: `docker-compose up --build`. It'll get solutions for the n-queens puzzle iterating over n from 8 to 13. Solutions are saved in a table in postgres DB, where the first column is the value of n and the second column is an array representing each solution.
 
 A solution consists of a one-dimensional array where the index represents the row and the value represents the column of each queen.
+
+Github actions has been configured to automatically execute tests on each push.
