@@ -10,4 +10,4 @@ To run the solution create a .env file to set postgres_user and postgres_passwor
 
 A solution consists of a one-dimensional array where the index represents the row and the value represents the column of each queen.
 
-Github actions has been configured to automatically execute tests on each push.
+Github actions has been configured to automatically execute tests on each push, tests also run in the build of python app container.

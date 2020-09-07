@@ -10,4 +10,6 @@ ARG POSTGRES_PASSWORD
 
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
+RUN pytest tests.py
+
 CMD [ "python", "./nqueens.py" ]
